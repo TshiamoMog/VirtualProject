@@ -1,0 +1,31 @@
+private static void registerUser(Scanner scanner) {
+        System.out.print("Enter a username: ");
+        String username = scanner.nextLine();
+
+        if (users.containsKey(username)) {
+            System.out.println("Username already exists. Please choose another one.");
+        } else {
+            System.out.print("Enter a password: ");
+            String password = scanner.nextLine();
+            users.put(username, password);
+            System.out.println("Registration successful!");
+        }
+    }
+
+    private static void loginUser(Scanner scanner) {
+        System.out.print("Enter your username: ");
+        String username = scanner.nextLine();
+
+        if (users.containsKey(username)) {
+            System.out.print("Enter your password: ");
+            String password = scanner.nextLine();
+
+            if (users.get(username).equals(password)) {
+                System.out.println("Login successful!");
+            } else {
+                System.out.println("Incorrect password. Please try again.");
+            }
+        } else {
+            System.out.println("Username not found. Please register first.");
+        }
+    }
